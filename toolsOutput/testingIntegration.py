@@ -9,9 +9,10 @@ def nuclei(textFile):
     # Filtering#
             
     os.system("cat "+textFile+" | grep -v MSG > " + str(textFile)+"Filtered.txt")
-    commandNuclei = ["nuclei","-l",(str(textFile)+"Filtered.txt")]
-    print(commandNuclei)
-    runNuclei = subprocess.Popen(commandNuclei, stdout=subprocess.PIPE ).communicate()[0]
+    
+    os.system(("nuclei -l "+(str(textFile)+"Filtered.txt")+"-o "+str(textFile)+"Nuclei.txt"))
+    
+    
 
     
 def subfinder(sublink):
