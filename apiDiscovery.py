@@ -20,7 +20,6 @@ def main():
     while flag != True:
         try:
 
-            #usrInput = input("Please enter your command here(type -h for the list of commands):  ").lower() #user input
             parser = argparse.ArgumentParser(description="takes in user's url input")
             parser.add_argument('url', metavar='url',type=str, help='enter your url')
             parser.add_argument('choice',metavar='choice',type=str,help='Enter your Choices. \n'
@@ -53,6 +52,7 @@ def main():
                             url = data[0]
                             passCheck = True
                             print("Warning! Deleting Saved Inputs from your previous session!")
+                            file.close()
                             savedInputDelete = ["rm",str(url)+defaultFileName]
                             savedInputCleanUp = subprocess.Popen(savedInputDelete,stdout=subprocess.PIPE).communicate()[0]
                         elif userInput.lower() == 'no':
@@ -64,31 +64,9 @@ def main():
 
             except FileNotFoundError:
                 None
-            print("")
-            #help page
-            if usrInput == "h":
-                print("----------------------------------------------------------------------------------------------------------------------\n"
-                "Welcome to the API Discovery Help Page! Here are the list of commands:\n"
-                "b         Brute Force Method using a specified wordlist and url\n"
-                "o         Output to a readable csv/excel/pdf file. (Can only be done after using the other methods of enumeration\n"
-                "t         Using tools (Subfinder,Nuclei etc) to recursively find and test the web links/api links found (if any)\n"
-                "q         To quit the program\n"
-                "----------------------------------------------------------------------------------------------------------------------\n")
-                
-            #function 1: brute force
-            #elif usrInput == "b":
-            #    print("you chose the brute force method!")
-            #    apiTest.apiTest()
-            #function 2: output to csv & pdf file  
-            #elif usrInput == "-o":
-            #    print("Outputted to CSV & PDF File. This file can be found under the export files file as output.csv and output.pdf")
-            #    eF.main()
-            #function 4: 
-
-            #function (x): quit 
 
             #CSV/PDF
-            elif usrInput == "w":
+            if usrInput == "w":
                 print("You chose to output a pdf and or csv file!")
 
 
@@ -99,7 +77,7 @@ def main():
                     
                     if type(commandRun) == list:
                         
-                        #print("echo '["+str(commandRun)+"]' > testfile.txt")
+                        
                         os.system("echo "+str(commandRun)+" > "+ str(url)+ defaultFileName)
                     flag = True
                 except KeyboardInterrupt:

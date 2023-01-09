@@ -8,11 +8,9 @@ def nuclei(textFile):
     #----------------------Nuclei---------------------#
     # Filtering#
             
-    #nucleiTemplates = str(input("Please input the template you want to use for the testing.E.g. /nuclei-templates/...: " ))
-    #command = ("cat "+textFile+" | grep -v MSG > " + str(textFile)+"Filtered.txt")
-    
     os.system("cat "+textFile+" | grep -v MSG > " + str(textFile)+"Filtered.txt")
     commandNuclei = ["nuclei","-l",(str(textFile)+"Filtered.txt")]
+    print(commandNuclei)
     runNuclei = subprocess.Popen(commandNuclei, stdout=subprocess.PIPE ).communicate()[0]
 
     
@@ -22,7 +20,7 @@ def subfinder(sublink):
 
     #command to run subdirectory finder to find all the subdirectories of the url that was given
     commandSubFinder = ["subfinder","-d",(str(sublink)),"-nW","-t","100","-o",("toolsOutput/outputFiles/"+str(sublink)+"Subfinder.txt")]
-    #output = run(command, capture_output=True).stdout
+    
     #variable that stores the output of the subprocess and runs the command for subdirectory
     subfinder = subprocess.Popen(commandSubFinder, stdout=subprocess.PIPE ).communicate()[0]
 
@@ -71,6 +69,8 @@ def fileCheck(httpxlink):
         print("Internal Error!")
 
 def command_group_run(url,recursions,list):
+
+    #checks if the input has any values otherwise we set the default value. 
     if recursions != 0:
         numRecursions = int(recursions.strip(' '))
     elif recursions == 0:
@@ -90,8 +90,6 @@ def command_group_run(url,recursions,list):
             #---------------------FeroxBuster--------------------#
             if numRecursions == 0 or numRecursions == None:
                 numRecursions = int(input("Please input the number of times you want to do the recursion: "))
-            
-            #wordList = str(input("Please input the wordlist(include the path) you would want to use for the recursion: "))
 
             #checks if the file specififed by the user is available#
             fileFound = False
@@ -118,8 +116,6 @@ def command_group_run(url,recursions,list):
             #---------------------FeroxBuster--------------------#
             if numRecursions == 0:
                 numRecursions = int(input("Please input the number of times you want to do the recursion: "))
-            
-            #wordList = str(input("Please input the wordlist(include the path) you would want to use for the recursion: "))
 
             #checks if the file specififed by the user is available#
             fileFound = False
@@ -157,11 +153,9 @@ def command_group_run(url,recursions,list):
             returnVariables.append(wordList)
         else:
             returnVariables.append(None)
-        #print(returnVariables)
+
         return returnVariables
-        
-        
-        #print(links) #use this for testing 
+
 
     
 
@@ -169,6 +163,3 @@ def main(link,numRec,wordl):
     #link = input("Please input the url you want to use. E.g. twiiter.com/facebook.com/thedogapi.com: ")
     run = command_group_run(link,numRec,wordl)
     return run
-
-#if __name__ == "__main__":
-#    main()
