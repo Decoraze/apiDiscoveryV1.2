@@ -2,17 +2,22 @@
 from subprocess import run 
 import subprocess
 import os
+from datetime import datetime
+import PDFCSV.pdf as pdf
 
 currentProcess = 0
-def nuclei(textFile):
+def nuclei(textFile,link):
     #----------------------Nuclei---------------------#
     # Filtering#
-            
+    
+    os.system("cp "+textFile + " toolsOutput/finalFindings/"+(str(link)+"/" ))
+
     os.system("cat "+textFile+" | grep -v MSG > " + str(textFile)+"Filtered.txt")
     
-    os.system(("nuclei -l "+(str(textFile)+"Filtered.txt")+"-o "+str(textFile)+"Nuclei.txt"))
-    
-    
+    os.system(("nuclei -retries 3 -nc -l "+(str(textFile)+"Filtered.txt")+" >> "+(str(textFile) + "NucleiOutput.txt")))
+
+    os.system("cp "+(str(textFile) + "NucleiOutput.txt toolsOutput/finalFindings/"+(str(link)+"/" )))
+
 
     
 def subfinder(sublink):
@@ -24,6 +29,8 @@ def subfinder(sublink):
     
     #variable that stores the output of the subprocess and runs the command for subdirectory
     subfinder = subprocess.Popen(commandSubFinder, stdout=subprocess.PIPE ).communicate()[0]
+
+    
 
 def httpx(filePath,httpxLink):
 
@@ -38,6 +45,7 @@ def httpx(filePath,httpxLink):
     strip = subprocess.Popen(commandStrip, stdout=subprocess.PIPE)
     commandGrep = ['grep','200']
     output = subprocess.check_output((commandGrep), stdin=strip.stdout).decode("utf-8")
+    
     
     
         #print(type(output))testing
@@ -70,10 +78,16 @@ def fileCheck(httpxlink):
         print("Internal Error!")
 
 def command_group_run(url,recursions,list):
-
+    now = datetime.now()
+    time = now.strftime("%H%M%S")
+    linkDir = (str(url)+str(time)+"/")
+    os.system("mkdir toolsOutput/finalFindings/"+linkDir)
     #checks if the input has any values otherwise we set the default value. 
     if recursions != 0:
-        numRecursions = int(recursions.strip(' '))
+        try:
+            numRecursions = int(recursions.strip(' '))
+        except ValueError:
+            numRecursions = 0
     elif recursions == 0:
         numRecursions = recursions
     if list != '':
@@ -82,16 +96,22 @@ def command_group_run(url,recursions,list):
         wordList = list
     try:
         subfinder(url)
+        
 
         results = fileCheck(url)
 
         if results == False:
+            os.system("cp toolsOutput/outputFiles/"+str(url)+"Subfinder.txt toolsOutput/finalFindings/"+linkDir)
             links = httpx(("toolsOutput/outputFiles/"+str(url)+"Subfinder.txt"),url)
-            
+            os.system("cp toolsOutput/outputFiles/"+str(url)+"Httpx.txt toolsOutput/finalFindings/"+linkDir)
             #---------------------FeroxBuster--------------------#
             if numRecursions == 0 or numRecursions == None:
-                numRecursions = int(input("Please input the number of times you want to do the recursion: "))
-
+                while True:
+                    try:
+                        numRecursions = int(input("Please input the number of times you want to do the recursion: "))
+                        break
+                    except ValueError:
+                        print("Error! Wrong format! Please input numbers only!!")
             #checks if the file specififed by the user is available#
             fileFound = False
             while fileFound == False:
@@ -108,10 +128,10 @@ def command_group_run(url,recursions,list):
                     wordList = ''
             for urls in links:
                 print(urls)
-                commandFerox = ["feroxbuster","-u",urls,"-w",wordList,"-t","100","-f","-o","toolsOutput/outputFiles/"+(str(urls[8::])+"Feroxbuster.txt"),"--force-recursion","--time-limit","20m","--silent","-d",str(numRecursions),"-e"]
+                commandFerox = ["feroxbuster","-u",urls,"-w",wordList,"-t","100","-f","-o","toolsOutput/outputFiles/"+(str(urls[8::])+"Feroxbuster.txt"),"--force-recursion","--time-limit","10m","--silent","-d",str(numRecursions),"-e"]
                 feroxBuster = subprocess.Popen(commandFerox,stdout=subprocess.PIPE).communicate()[0]
                 #call nuclei 
-                nuclei("toolsOutput/outputFiles/"+(str(urls[8::])+"Feroxbuster.txt"))
+                nuclei("toolsOutput/outputFiles/"+(str(urls[8::])+"Feroxbuster.txt"),linkDir)
 
         elif results == True:
             #---------------------FeroxBuster--------------------#
@@ -121,8 +141,9 @@ def command_group_run(url,recursions,list):
             #checks if the file specififed by the user is available#
             fileFound = False
             while fileFound == False:
-                if numRecursions == '':
+                if (wordList == '' or wordList == None) and numRecursions != 0:
                     wordList = str(input("Please input the wordlist(include the path) you would want to use for the recursion: "))
+                    break
                 else:
                     print(wordList)
                 try:
@@ -135,11 +156,12 @@ def command_group_run(url,recursions,list):
                     wordList = ''
             
             print(url)
-            commandFerox = ["feroxbuster","-u",url,"-w",wordList,"-t","100","-f","-o","toolsOutput/outputFiles/"+(str(url)+"Feroxbuster.txt"),"--force-recursion","--time-limit","20m","--silent","-d",str(numRecursions),"-e"]
+            commandFerox = ["feroxbuster","-u",url,"-w",wordList,"-t","100","-f","-o","toolsOutput/outputFiles/"+(str(url)+"Feroxbuster.txt"),"--force-recursion","--time-limit","10m","--silent","-d",str(numRecursions),"-e"]
             feroxBuster = subprocess.Popen(commandFerox,stdout=subprocess.PIPE).communicate()[0]
             #call nuclei 
-            nuclei("toolsOutput/outputFiles/"+(str(url)+"Feroxbuster.txt"))
-        
+            nuclei("toolsOutput/outputFiles/"+(str(url)+"Feroxbuster.txt"),linkDir)
+        commandCleanUp = ["rm","-r","toolsOutput/outputFiles/"]
+        cleanUp = subprocess.Popen(commandCleanUp,stdout=subprocess.PIPE).communicate()[0]
     except KeyboardInterrupt:
         #cleanup
         commandCleanUp = ["rm","-r","toolsOutput/outputFiles/"]
@@ -157,7 +179,8 @@ def command_group_run(url,recursions,list):
 
         return returnVariables
 
-
+    os.system("clear")
+    pdf.main(linkDir,url)
     
 
 def main(link,numRec,wordl):

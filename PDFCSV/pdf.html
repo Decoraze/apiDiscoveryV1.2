@@ -1,0 +1,39 @@
+
+<title>PDFREPORT</title>
+<head>
+    <body>
+		<div >
+			<img style="height: 96px; align-items: left;" src="https://brandslogos.com/wp-content/uploads/images/large/bdo-logo.png">
+		</div>
+		
+        <div class="headerStyle" style="text-align: center">
+			
+			<span>{{Website_URL}} Vulnerability Report</span>
+		</div>
+		<hr>
+		<br>
+		<div class="subDomain" style="text-align: left">
+			<span><u>Exposed SubDomains</u></span>
+			<br><br>
+			<span>{{subDomainResults}}</span>
+		</div>
+		<br>
+		<div>
+			<span><u>Exposed Ports & IP Addresses</u></span>
+			<br><br>
+			<span>{{httpxResults}}</span>
+		</div>
+		<br>
+		<div>
+			<span><u>Exposed Endpoints</u></span></span>
+			<br><br>
+			<span>{{feroxBusterResults}}</span>
+		</div>
+		<br>
+		<div>
+			<span><u>Nuclei Vulnerabilities</u></span>
+			<br><br>
+			<span>{{nucleiResults}}</span>
+		</div>
+    </body>
+</head>

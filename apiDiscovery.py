@@ -5,7 +5,7 @@ import toolsOutput.testingIntegration as toolsIntegration
 import subprocess
 from subprocess import run
 import argparse
-
+import PDFCSV.pdf as pdf
 
 
 def main():
@@ -45,16 +45,19 @@ def main():
 
                         if userInput.lower() == 'yes':
                             line = file.readline()
-                            data = line[1:-2]
-                            data = data.split(',')
-                            numRec = data[1]
-                            wordl = data[2]
-                            url = data[0]
-                            passCheck = True
-                            print("Warning! Deleting Saved Inputs from your previous session!")
-                            file.close()
-                            savedInputDelete = ["rm",str(url)+defaultFileName]
-                            savedInputCleanUp = subprocess.Popen(savedInputDelete,stdout=subprocess.PIPE).communicate()[0]
+                            if line != "":
+                                data = line[1:-2]
+                                data = data.split(',')
+                                numRec = data[1]
+                                wordl = data[2]
+                                url = data[0]
+                                passCheck = True
+                                print("Warning! Deleting Saved Inputs from your previous session!")
+                                file.close()
+                                savedInputDelete = ["rm",str(url)+defaultFileName]
+                                savedInputCleanUp = subprocess.Popen(savedInputDelete,stdout=subprocess.PIPE).communicate()[0]
+                            else:
+                                print("Data from your previous session was not saved properly!")
                         elif userInput.lower() == 'no':
                             file.close()
                             print("Warning! Deleting Saved Inputs from your previous session!")
@@ -68,7 +71,7 @@ def main():
             #CSV/PDF
             if usrInput == "w":
                 print("You chose to output a pdf and or csv file!")
-
+                pdf.main(url)
 
             elif usrInput == "t":
                 print("You chose to use the tools!")

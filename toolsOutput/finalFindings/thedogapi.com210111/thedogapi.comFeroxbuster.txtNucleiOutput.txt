@@ -1,0 +1,91 @@
+[2023-01-23 21:08:10] [tech-detect:cloudflare] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:10] [tech-detect:jsdelivr] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:10] [tech-detect:google-font-api] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:10] [tech-detect:cloudflare] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:10] [tech-detect:google-font-api] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:10] [tech-detect:cloudflare] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:10] [tech-detect:jsdelivr] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:15] [ssl-dns-names] [ssl] [info] thedogapi.com [thedogapi.com,*.thedogapi.com,sni.cloudflaressl.com]
+[2023-01-23 21:08:15] [ssl-dns-names] [ssl] [info] thedogapi.com [sni.cloudflaressl.com,thedogapi.com,*.thedogapi.com]
+[2023-01-23 21:08:15] [ssl-dns-names] [ssl] [info] thedogapi.com [thedogapi.com,*.thedogapi.com,sni.cloudflaressl.com]
+[2023-01-23 21:08:21] [deprecated-tls] [ssl] [info] thedogapi.com [tls10]
+[2023-01-23 21:08:21] [deprecated-tls] [ssl] [info] thedogapi.com [tls10]
+[2023-01-23 21:08:21] [deprecated-tls] [ssl] [info] thedogapi.com [tls10]
+[2023-01-23 21:08:21] [deprecated-tls] [ssl] [info] thedogapi.com [tls11]
+[2023-01-23 21:08:21] [deprecated-tls] [ssl] [info] thedogapi.com [tls11]
+[2023-01-23 21:08:21] [deprecated-tls] [ssl] [info] thedogapi.com [tls11]
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-allow-credentials] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-expose-headers] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-allow-headers] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:clear-site-data] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:x-content-type-options] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:clear-site-data] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:x-content-type-options] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:clear-site-data] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-allow-origin] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:cross-origin-embedder-policy] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:permissions-policy] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-expose-headers] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:x-frame-options] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:content-security-policy] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-allow-credentials] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-allow-methods] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:x-content-type-options] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-allow-methods] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:content-security-policy] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-max-age] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:permissions-policy] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:strict-transport-security] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-allow-credentials] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:x-frame-options] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:referrer-policy] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-allow-origin] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:content-security-policy] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:cross-origin-opener-policy] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-expose-headers] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:referrer-policy] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-max-age] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:strict-transport-security] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:permissions-policy] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:x-frame-options] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:cross-origin-resource-policy] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-allow-headers] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:referrer-policy] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-allow-methods] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:strict-transport-security] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-max-age] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-allow-headers] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:40] [http-missing-security-headers:access-control-allow-origin] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:08:43] [dnssec-detection] [dns] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:08:43] [dnssec-detection] [dns] [info] https://thedogapi.com/Index/ => /
+[2023-01-23 21:08:43] [dnssec-detection] [dns] [info] https://thedogapi.com/index/ => /
+[2023-01-23 21:10:02] [ssl-issuer] [ssl] [info] thedogapi.com [Cloudflare, Inc.]
+[2023-01-23 21:10:02] [ssl-issuer] [ssl] [info] thedogapi.com [Cloudflare, Inc.]
+[2023-01-23 21:10:03] [ssl-issuer] [ssl] [info] thedogapi.com [Cloudflare, Inc.]
+[2023-01-23 21:10:25] [robots-txt-endpoint] [http] [info] https://thedogapi.com/robots.txt
+[2023-01-23 21:10:26] [robots-txt-endpoint] [http] [info] https://thedogapi.com/robots.txt
+[2023-01-23 21:10:26] [robots-txt-endpoint] [http] [info] https://thedogapi.com/robots.txt
+[2023-01-23 21:10:27] [nameserver-fingerprint] [dns] [info] https://thedogapi.com/favicon.ico/ [beau.ns.cloudflare.com.,vera.ns.cloudflare.com.]
+[2023-01-23 21:10:27] [nameserver-fingerprint] [dns] [info] https://thedogapi.com/index/ => / [beau.ns.cloudflare.com.,vera.ns.cloudflare.com.]
+[2023-01-23 21:10:28] [nameserver-fingerprint] [dns] [info] https://thedogapi.com/Index/ => / [beau.ns.cloudflare.com.,vera.ns.cloudflare.com.]
+[2023-01-23 21:10:47] [tls-version] [ssl] [info] thedogapi.com [tls13]
+[2023-01-23 21:10:47] [tls-version] [ssl] [info] thedogapi.com [tls13]
+[2023-01-23 21:10:47] [tls-version] [ssl] [info] thedogapi.com [tls13]
+[2023-01-23 21:10:47] [waf-detect:cloudflare] [http] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:10:47] [waf-detect:cloudflare] [http] [info] https://thedogapi.com/index/%20=%3E%20/
+[2023-01-23 21:10:47] [waf-detect:cloudflare] [http] [info] https://thedogapi.com/Index/%20=%3E%20/
+[2023-01-23 21:10:59] [txt-fingerprint] [dns] [info] https://thedogapi.com/index/ => / ["google-site-verification=O5rZfylweRsefaCivcaNrX0RKG72--_WYC5t11_kre8"]
+[2023-01-23 21:10:59] [txt-fingerprint] [dns] [info] https://thedogapi.com/Index/ => / ["google-site-verification=O5rZfylweRsefaCivcaNrX0RKG72--_WYC5t11_kre8"]
+[2023-01-23 21:10:59] [txt-fingerprint] [dns] [info] https://thedogapi.com/favicon.ico/ ["google-site-verification=O5rZfylweRsefaCivcaNrX0RKG72--_WYC5t11_kre8"]
+[2023-01-23 21:11:01] [dns-waf-detect:cloudflare] [dns] [info] https://thedogapi.com/favicon.ico/
+[2023-01-23 21:11:01] [dns-waf-detect:cloudflare] [dns] [info] https://thedogapi.com/Index/ => /
+[2023-01-23 21:11:01] [dns-waf-detect:cloudflare] [dns] [info] https://thedogapi.com/index/ => /
