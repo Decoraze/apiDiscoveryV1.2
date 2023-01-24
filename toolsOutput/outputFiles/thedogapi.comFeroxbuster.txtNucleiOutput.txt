@@ -74,3 +74,18 @@
 [2023-01-24 13:02:31] [txt-fingerprint] [dns] [info] https://thedogapi.com/favicon.ico/ ["google-site-verification=O5rZfylweRsefaCivcaNrX0RKG72--_WYC5t11_kre8"]
 [2023-01-24 13:02:31] [txt-fingerprint] [dns] [info] https://thedogapi.com/Index/ => / ["google-site-verification=O5rZfylweRsefaCivcaNrX0RKG72--_WYC5t11_kre8"]
 [2023-01-24 13:02:31] [txt-fingerprint] [dns] [info] https://thedogapi.com/index/ => / ["google-site-verification=O5rZfylweRsefaCivcaNrX0RKG72--_WYC5t11_kre8"]
+[2023-01-24 13:02:34] [robots-txt-endpoint] [http] [info] https://thedogapi.com/robots.txt
+[2023-01-24 13:02:35] [robots-txt-endpoint] [http] [info] https://thedogapi.com/robots.txt
+[2023-01-24 13:02:35] [robots-txt-endpoint] [http] [info] https://thedogapi.com/robots.txt
+[2023-01-24 13:02:43] [dns-waf-detect:cloudflare] [dns] [info] https://thedogapi.com/Index/ => /
+[2023-01-24 13:02:43] [dns-waf-detect:cloudflare] [dns] [info] https://thedogapi.com/index/ => /
+[2023-01-24 13:02:43] [dns-waf-detect:cloudflare] [dns] [info] https://thedogapi.com/favicon.ico/
+[2023-01-24 13:03:21] [nameserver-fingerprint] [dns] [info] https://thedogapi.com/favicon.ico/ [beau.ns.cloudflare.com.,vera.ns.cloudflare.com.]
+[2023-01-24 13:03:21] [nameserver-fingerprint] [dns] [info] https://thedogapi.com/index/ => / [beau.ns.cloudflare.com.,vera.ns.cloudflare.com.]
+[2023-01-24 13:03:22] [nameserver-fingerprint] [dns] [info] https://thedogapi.com/Index/ => / [beau.ns.cloudflare.com.,vera.ns.cloudflare.com.]
+[2023-01-24 13:03:29] [ssl-issuer] [ssl] [info] thedogapi.com [Cloudflare, Inc.]
+[2023-01-24 13:03:29] [ssl-issuer] [ssl] [info] thedogapi.com [Cloudflare, Inc.]
+[2023-01-24 13:03:29] [ssl-issuer] [ssl] [info] thedogapi.com [Cloudflare, Inc.]
+[2023-01-24 13:03:38] [ssl-dns-names] [ssl] [info] thedogapi.com [thedogapi.com,*.thedogapi.com,sni.cloudflaressl.com]
+[2023-01-24 13:03:38] [ssl-dns-names] [ssl] [info] thedogapi.com [sni.cloudflaressl.com,thedogapi.com,*.thedogapi.com]
+[2023-01-24 13:03:38] [ssl-dns-names] [ssl] [info] thedogapi.com [thedogapi.com,*.thedogapi.com,sni.cloudflaressl.com]
