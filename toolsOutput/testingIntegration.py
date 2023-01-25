@@ -56,8 +56,8 @@ def httpx(filePath,httpxLink):
 
         if link not in links and link != '':                                                                                #appending links for returning to feroxbuster
             links.append(link)
-    return links
-
+    return links                                                                                                            # return links for feroxbuster
+    
 def fileCheck(httpxlink):
     #check if the file is empty or the link provided has any subdomains.
     try:
