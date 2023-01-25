@@ -62,19 +62,21 @@ def fileCheck(httpxlink):
     #check if the file is empty or the link provided has any subdomains.
     try:
         f = open((("toolsOutput/outputFiles/"+str(httpxlink))+"Subfinder.txt"),'r')                                         # opens file for subfinder to check if it is empty
-        data = f.read()
-        print(data == '')
-        if data == '':
-            print("Link provided seems to not have any subdomains. Moving on to feroxbuster.")
+        data = f.read()                                                                                                     # initialise  the file reading and get data from said file
+                                                                                                          
+        if data == '':                                                                                                      # if there is no file or if there is no data in the file, it will return True
+            print("Link provided seems to not have any subdomains. Moving on to feroxbuster.")                              # Process message appears to tell that it is moving on to ferox instead of httpx
             return True
         else:
-            print("Moving On to HTTPX")
+            print("Moving On to HTTPX")                                                                                     # if the file is populated, it moves onto httpx
             
-            return False
+            return False                                                                                                    # returning false in the process
 
-    except FileNotFoundError:
+    except FileNotFoundError:                                                                                               
         print("Internal Error!")
-
+    except:
+        print("Error!")
+        
 def command_group_run(url,recursions,list):
     now = datetime.now()
     time = now.strftime("%H%M%S")
