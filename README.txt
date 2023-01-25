@@ -8,7 +8,11 @@ e.g. ?**/apiDiscovery/apiDiscovery/.....
 This can happen after extracting the files to a location. 
 
 
-Remember to use the latest version of python to run this file!!
+Remember to use python3 to run this file along side kali linux.
+
+List of tools to download:
+Subfinder,
+Nuclei
 
 To run it, run the "apiDiscovery.py" file. 
 ------------------------------------Features------------------------------------
