@@ -54,7 +54,7 @@ def httpx(filePath,httpxLink):
     for requests in outputlst:                                                                                              # for loop to check which are the variables from the output that are actual links.
         link = (requests.split(' '))[0]
 
-        if link not in links and link != '':
+        if link not in links and link != '':                                                                                #appending links for returning to feroxbuster
             links.append(link)
     return links
 
