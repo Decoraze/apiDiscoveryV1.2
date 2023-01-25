@@ -45,7 +45,7 @@ def insertValues(sub,httpx,ferox,nuclei,url):
     for value in sub:
         subDomainOutput += (str(value)+"<br> ")                                            #                       append subdomains to the string for the output for the pdf file
 
-    for value in httpx:
+    for value in httpx:                                                                    #                       append httpx values to the string
         httpxOutput += (str(value)+"<br> ")
 
     for value in ferox:
