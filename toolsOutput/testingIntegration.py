@@ -54,14 +54,14 @@ def httpx(filePath,httpxLink):
     for requests in outputlst:                                                                                              # for loop to check which are the variables from the output that are actual links.
         link = (requests.split(' '))[0]
 
-        if link not in links and link != '':                                                                                #appending links for returning to feroxbuster
+        if link not in links and link != '':                                                                                # appending links for returning to feroxbuster
             links.append(link)
     return links                                                                                                            # return links for feroxbuster
-    
+
 def fileCheck(httpxlink):
     #check if the file is empty or the link provided has any subdomains.
     try:
-        f = open((("toolsOutput/outputFiles/"+str(httpxlink))+"Subfinder.txt"),'r')
+        f = open((("toolsOutput/outputFiles/"+str(httpxlink))+"Subfinder.txt"),'r')                                         # opens file for subfinder to check if it is empty
         data = f.read()
         print(data == '')
         if data == '':
