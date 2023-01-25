@@ -1,3 +1,0 @@
-api.thedogapi.com
-docs.thedogapi.com
-thedogapi.com

@@ -1,3 +1,0 @@
-https://thedogapi.com/favicon.ico/
-https://thedogapi.com/Index/ => /
-https://thedogapi.com/index/ => /

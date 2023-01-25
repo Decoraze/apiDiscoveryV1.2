@@ -16,7 +16,7 @@ def pdfOutput(url,subFinder,httpx,feroxbuster,nuclei):
     httpxResults = httpx
     feroxBusterResults = feroxbuster
     nucleiResults = nuclei
-    dateTime = datetime.today().strftime("%d-%b-%Y")
+    dateTime = datetime.today().strftime("%d-%b-%Y %H%M%S")
 
 
     context = {'Website_URL': Website_URL, 'subDomainResults':subDomainResults, "httpxResults":httpxResults,

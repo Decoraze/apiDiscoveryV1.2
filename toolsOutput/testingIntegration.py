@@ -10,13 +10,14 @@ def nuclei(textFile,link):
     #----------------------Nuclei---------------------#
     # Filtering#
     
-    os.system("cp "+textFile + " toolsOutput/finalFindings/"+(str(link)+"/" ))
-
-    os.system("cat "+textFile+" | grep -v MSG > " + str(textFile)+"Filtered.txt")
+    os.system("cp "+textFile + " toolsOutput/finalFindings/"+(str(link)+"/" ))                                             # copy output file over to finalfindings folder
+                                                                            
+    os.system("cat "+textFile+" | grep -v MSG > " + str(textFile)+"Filtered.txt")                                          # filter out any unneccessary message from ferox
     
-    os.system(("nuclei -retries 3 -nc -l "+(str(textFile)+"Filtered.txt")+" >> "+(str(textFile) + "NucleiOutput.txt")))
+    os.system(("nuclei -retries 3 -nc -l "+(str(textFile)+"Filtered.txt")+" >> "+(str(textFile) + "NucleiOutput.txt")))    # run nuclei command with max retries, silence, 
+                                                                                                                           # and from a file given by feroxbuster and output the output to a text file
 
-    os.system("cp "+(str(textFile) + "NucleiOutput.txt toolsOutput/finalFindings/"+(str(link)+"/" )))
+    os.system("cp "+(str(textFile) + "NucleiOutput.txt toolsOutput/finalFindings/"+(str(link)+"/" )))                      # copy the output from nuclei to finalfindings. 
 
 
     
@@ -40,20 +41,17 @@ def httpx(filePath,httpxLink):
     #command to run the command given above by using subprocess library
     httpx = subprocess.Popen(commandHttpx, stdout=subprocess.PIPE).communicate()[0]
 
-    #command to filter the output: cat *url*Httpx.txt | grep 200
-    commandStrip = ["cat", ("toolsOutput/outputFiles/"+str(httpxLink)+"Httpx.txt")]
-    strip = subprocess.Popen(commandStrip, stdout=subprocess.PIPE)
-    commandGrep = ['grep','200']
-    output = subprocess.check_output((commandGrep), stdin=strip.stdout).decode("utf-8")
     
-    
-    
-        #print(type(output))testing
+    commandStrip = ["cat", ("toolsOutput/outputFiles/"+str(httpxLink)+"Httpx.txt")]                                         # create command to cat the httpx output 
+    strip = subprocess.Popen(commandStrip, stdout=subprocess.PIPE)                                                          # run the process
+    commandGrep = ['grep','200']                                                                                            # grep only the those with 200 status codes
+    output = subprocess.check_output((commandGrep), stdin=strip.stdout).decode("utf-8")                                     # run the process and decode it into a vairbale output
+
         
     #filtering even more by putting the output into a list and filtering from there using a nested loop
-    outputlst = output.split("\n")
-    links = []
-    for requests in outputlst:
+    outputlst = output.split("\n")                                                                                          # split the output into a list via \n
+    links = []                                                                                                              # create a temporary variable for the lists to be returned later
+    for requests in outputlst:                                                                                              # for loop to check which are the variables from the output that are actual links.
         link = (requests.split(' '))[0]
 
         if link not in links and link != '':
@@ -181,7 +179,7 @@ def command_group_run(url,recursions,list):
 
     os.system("clear")
     pdf.main(linkDir,url)
-    
+    os.system("echo 'Finished Scanning'")
 
 def main(link,numRec,wordl):
     #link = input("Please input the url you want to use. E.g. twiiter.com/facebook.com/thedogapi.com: ")
