@@ -1,0 +1,6 @@
+https://api.thedogapi.com [SUCCESS] [200] [43] [application/json] [142.250.4.121]
+https://api.thedogapi.com [SUCCESS] [200] [43] [application/json] [2404:6800:4003:c05::79]
+https://thedogapi.com [SUCCESS] [200] [3137] [text/html] [2606:4700:3037::ac43:a782]
+https://thedogapi.com [SUCCESS] [200] [3137] [text/html] [104.21.82.6]
+https://thedogapi.com [SUCCESS] [200] [3137] [text/html] [2606:4700:3036::6815:5206]
+https://thedogapi.com [SUCCESS] [200] [3137] [text/html] [172.67.167.130]
