@@ -41,21 +41,23 @@ def httpx(filePath,httpxLink):
     #command to run the command given above by using subprocess library
     httpx = subprocess.Popen(commandHttpx, stdout=subprocess.PIPE).communicate()[0]
 
-    
-    commandStrip = ["cat", ("toolsOutput/outputFiles/"+str(httpxLink)+"Httpx.txt")]                                         # create command to cat the httpx output 
-    strip = subprocess.Popen(commandStrip, stdout=subprocess.PIPE)                                                          # run the process
-    commandGrep = ['grep','200']                                                                                            # grep only the those with 200 status codes
-    output = subprocess.check_output((commandGrep), stdin=strip.stdout).decode("utf-8")                                     # run the process and decode it into a vairbale output
+    try:
+        commandStrip = ["cat", ("toolsOutput/outputFiles/"+str(httpxLink)+"Httpx.txt")]                                         # create command to cat the httpx output 
+        strip = subprocess.Popen(commandStrip, stdout=subprocess.PIPE)                                                          # run the process
+        commandGrep = ['grep','200']                                                                                            # grep only the those with 200 status codes
+        output = subprocess.check_output((commandGrep), stdin=strip.stdout).decode("utf-8")
+        #filtering even more by putting the output into a list and filtering from there using a nested loop
+        outputlst = output.split("\n")                                                                                          # split the output into a list via \n
+        links = []                                                                                                              # create a temporary variable for the lists to be returned later
+        for requests in outputlst:                                                                                              # for loop to check which are the variables from the output that are actual links.
+            link = (requests.split(' '))[0]
 
+            if link not in links and link != '':                                                                                # appending links for returning to feroxbuster
+                links.append(link)                                     # run the process and decode it into a vairbale output
+    except:
+        links = httpxLink
         
-    #filtering even more by putting the output into a list and filtering from there using a nested loop
-    outputlst = output.split("\n")                                                                                          # split the output into a list via \n
-    links = []                                                                                                              # create a temporary variable for the lists to be returned later
-    for requests in outputlst:                                                                                              # for loop to check which are the variables from the output that are actual links.
-        link = (requests.split(' '))[0]
-
-        if link not in links and link != '':                                                                                # appending links for returning to feroxbuster
-            links.append(link)
+    
     return links                                                                                                            # return links for feroxbuster
 
 def fileCheck(httpxlink):
@@ -184,6 +186,25 @@ def command_group_run(url,recursions,list):
     os.system("echo 'Finished Scanning'")
 
 def main(link,numRec,wordl):
-    #link = input("Please input the url you want to use. E.g. twiiter.com/facebook.com/thedogapi.com: ")
-    run = command_group_run(link,numRec,wordl)
+    print("Now Running Subfinder --> HTTPX --> FeroxBuster --> Nuclei!!")
+    try:
+        flag = False
+
+        while flag == False:
+            x = input("Continue?(Yes [y] or No [n]) : ")
+
+            if x.lower() == "y":
+                #link = input("Please input the url you want to use. E.g. twiiter.com/facebook.com/thedogapi.com: ")
+                run = command_group_run(link,numRec,wordl)
+                flag = True
+            elif x.lower() == "n":
+                print("Exiting Program.")
+                os.exit()
+                flag = True
+            else:
+                print("Error has occured. Please Enter your choice again!")
+                
+    except ValueError:
+        print("An Error Has Occured.")
+    
     return run

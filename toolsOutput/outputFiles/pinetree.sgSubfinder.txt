@@ -1,0 +1,8 @@
+ns3.pinetree.sg
+ns.pinetree.sg
+ns1.pinetree.sg
+ns2.pinetree.sg
+ns1.pinetree.sg
+ns.pinetree.sg
+ns2.pinetree.sg
+ns3.pinetree.sg
