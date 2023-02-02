@@ -1,0 +1,5 @@
+https://api.thedogapi.com/
+https://api.thedogapi.com/v1/
+https://api.thedogapi.com/v1/categories/
+https://api.thedogapi.com/v1/facts/
+https://api.thedogapi.com/v1/me/

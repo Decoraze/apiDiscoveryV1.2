@@ -1,4 +1,4 @@
-
+import sys
 from subprocess import run 
 import subprocess
 import os
@@ -193,13 +193,13 @@ def main(link,numRec,wordl):
         while flag == False:
             x = input("Continue?(Yes [y] or No [n]) : ")
 
-            if x.lower() == "y":
+            if x.lower() == "y" or x.lower() == "yes" :
                 #link = input("Please input the url you want to use. E.g. twiiter.com/facebook.com/thedogapi.com: ")
                 run = command_group_run(link,numRec,wordl)
                 flag = True
-            elif x.lower() == "n":
+            elif x.lower() == "n" or x.lower() == "no":
                 print("Exiting Program.")
-                os.exit()
+                return False
                 flag = True
             else:
                 print("Error has occured. Please Enter your choice again!")

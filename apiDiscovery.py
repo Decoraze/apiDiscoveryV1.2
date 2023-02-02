@@ -83,13 +83,17 @@ def main():
                         
                         os.system("echo "+str(commandRun)+" > "+ str(url)+ defaultFileName)
                     flag = True
+                    
                 except KeyboardInterrupt:
                     print("\nThe program has stopped unexpectedly! Please check your inputs and ensure that your inputs are valid(unless you ctrl c then thats fine).")
                     flag = True
                     #clean up on event of crashing
-                    commandCleanUp = ["rm","-r","toolsOutput/outputFiles/"]
-                    cleanUp = subprocess.Popen(commandCleanUp,stdout=subprocess.PIPE).communicate()[0]
-                
+                    try:
+                        f = os.listdir("toolsOutput/outputFiles/")
+                        commandCleanUp = ["rm","-r","toolsOutput/outputFiles/"]
+                        cleanUp = subprocess.Popen(commandCleanUp,stdout=subprocess.PIPE).communicate()[0]
+                    except FileNotFoundError:
+                        print("")
             elif usrInput == "q":
                 print("Ending Program!")
                 sys.exit()
