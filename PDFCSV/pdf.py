@@ -9,6 +9,21 @@ subDomainList = []
 httpxList = []
 feroxList = []
 nucleiList = []
+
+def fileCheck(filePath):
+    fileInput = False
+    while fileInput == False:
+        try:
+            file = open(filePath)
+
+            fileInput = True
+            return True
+            
+        except FileNotFoundError:
+            
+            return False
+
+
 def pdfOutput(url,subFinder,httpx,feroxbuster,nuclei):
     #initialise variables for pdf
     Website_URL = url
@@ -93,6 +108,27 @@ def getResults(fileName,link):
     acceptedUrls = findUrl(subDomainList,('toolsOutput/finalFindings/'+fileName+"/"))
     #print(acceptedUrls)
     
+    #whitelisted sites
+    usr = False
+    whiteList = []
+    while usr == False:
+        try:
+            usrInput = str(input("Please input your text file path for whitelisted sites:"))
+            if fileCheck(usrInput) == True:
+                f = open(usrInput)
+                
+                for line in f:
+                    line = line.replace('\n','')
+                    whiteList.append(line)
+                usr = True
+            elif fileCheck(usrInput) == False:
+                print("File Not Found!! Please enter again")
+
+            else:
+                print("An error has occured!")
+
+        except FileNotFoundError or ValueError:
+            print("Error has occured! Please check your inputs")
 
     #appending ferox result from the text file into the list
     for x in acceptedUrls:                                                               #                       enumerate through the list of accepted urls(urls that were scanned) 
@@ -103,6 +139,11 @@ def getResults(fileName,link):
             feroxList.append(line)                                                          #                       appending results to ferox list
     #print(feroxList)
 
+    #update links in pdf
+    for i in whiteList:
+        for line in feroxList:
+            if i in line:
+                feroxList.remove(line)
 
     for x in acceptedUrls:                                                               #                       enumerate through the list of accepted urls(urls that were scanned)
         nuclei_file = ('toolsOutput/finalFindings/'+fileName+"/"+x+"Feroxbuster.txtNucleiOutput.txt")#           directory listing for the nuclei file

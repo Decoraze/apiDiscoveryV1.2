@@ -1,3 +1,0 @@
-thedogapi.com
-api.thedogapi.com
-cdn2.thedogapi.com
