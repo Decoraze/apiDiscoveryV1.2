@@ -10,7 +10,7 @@ import PDFCSV.pdf as pdf
 
 def main():
     #check for dependancies installed on the system.
-    os.system("chmod 777 dependancyChecker.sh")
+    os.system("chmod 777 dependancyChecker.sh")                                                         # command to make DependancyChecker Executable
     os.system("./dependancyChecker.sh")
     ###
     
