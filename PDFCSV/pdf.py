@@ -114,19 +114,23 @@ def getResults(fileName,link):
     while usr == False:
         try:
             usrInput = str(input("Please input your text file path for whitelisted sites:"))
-            if fileCheck(usrInput) == True:
-                f = open(usrInput)
-                
-                for line in f:
-                    line = line.replace('\n','')
-                    whiteList.append(line)
+            if usrInput == "":
                 usr = True
-            elif fileCheck(usrInput) == False:
-                print("File Not Found!! Please enter again")
-
             else:
-                print("An error has occured!")
 
+                if fileCheck(usrInput) == True:
+                    f = open(usrInput)
+                    
+                    for line in f:
+                        line = line.replace('\n','')
+                        whiteList.append(line)
+                    usr = True
+                elif fileCheck(usrInput) == False:
+                    print("File Not Found!! Please enter again")
+
+                else:
+                    print("An error has occured!")
+            
         except FileNotFoundError or ValueError:
             print("Error has occured! Please check your inputs")
 
