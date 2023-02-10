@@ -75,9 +75,9 @@ def fileCheck(httpxlink):
             return False                                                                                                    # returning false in the process
 
     except FileNotFoundError:                                                                                               
-        print("Internal Error!")
+        print("Internal Error 78!")
     except:
-        print("Error!")
+        print("Error 80!")
         
 def command_group_run(url,recursions,list):
     now = datetime.now()
@@ -113,7 +113,7 @@ def command_group_run(url,recursions,list):
                         numRecursions = int(input("Please input the number of times you want to do the recursion: "))
                         break
                     except ValueError:
-                        print("Error! Wrong format! Please input numbers only!!")
+                        print("Error 116! Wrong format! Please input numbers only!!")
             #checks if the file specififed by the user is available#
             fileFound = False
             while fileFound == False:
@@ -126,7 +126,7 @@ def command_group_run(url,recursions,list):
                     fileFound = True
                             
                 except FileNotFoundError:
-                    print('Error! File is not found please try again!')
+                    print('Error 129! File is not found please try again!')
                     wordList = ''
             for urls in links:
                 print(urls)
@@ -154,7 +154,7 @@ def command_group_run(url,recursions,list):
                             
                 except FileNotFoundError:
                     print(wordList)
-                    print('Error! File is not found please try again!')
+                    print('Error 157! File is not found please try again!')
                     wordList = ''
             
             print(url)
@@ -186,7 +186,7 @@ def command_group_run(url,recursions,list):
     os.system("echo 'Finished Scanning'")
 
 def main(link,numRec,wordl):
-    print("Now Running Subfinder --> HTTPX --> FeroxBuster --> Nuclei!!")
+    print("Now Running Subfinder --> HTTPX --> FeroxBuster --> Nuclei!! You will be able to find your files in toolsOutput/finalFindings/(timeofscan)[toolname].txt")
     try:
         flag = False
 
@@ -202,7 +202,7 @@ def main(link,numRec,wordl):
                 return False
                 flag = True
             else:
-                print("Error has occured. Please Enter your choice again!")
+                print("Error 205 has occured. Please Enter your choice again!")
                 
     except ValueError:
         print("An Error Has Occured.")
