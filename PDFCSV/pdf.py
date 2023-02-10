@@ -113,7 +113,7 @@ def getResults(fileName,link):
     whiteList = []
     while usr == False:
         try:
-            usrInput = str(input("Please input your text file path for whitelisted sites:"))
+            usrInput = str(input("Please input your text file path for whitelisted sites (Press ENTER if you have no inputs ):"))
             if usrInput == "":
                 usr = True
             else:

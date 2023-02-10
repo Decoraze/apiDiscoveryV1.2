@@ -5,14 +5,14 @@ nucleiCheck=`dpkg -l | grep nuclei`
 subfinderCheck=`dpkg -l | grep subfinder`
 feroxbusterCheck=`dpkg -l | grep feroxbuster`
 golangCheck=`dpkg -l | grep golang`
-
+wkhtmltopdfCheck=`dpkg -l | grep wkhtmltopdf`
 
 ##Checking Nuclei##
 if [ -z "$nucleiCheck"  ]
 then
 	echo "Nuclei is NOT installed in your system. Installing Nuclei....."
 	echo ""
-	apt-get install nuclei
+	sudo apt-get install nuclei
 else
 	echo "Nuclei is Installed in your system."
 fi	
@@ -21,7 +21,7 @@ if [ -z "$subfinderCheck" ]
 then
 	echo "Subfinder is NOT installed in your system. Installing subfinder....."
 	echo ""
-	apt-get install subfinder
+	sudo apt-get install subfinder
 else
 	echo "Subfinder is installed in your system."
 fi
@@ -30,7 +30,7 @@ if [ -z "$feroxbusterCheck" ]
 then
 	echo "Feroxbuster is NOT installed in your system. Installing feroxbuster....."
 	echo ""
-	apt-get installferoxbuster
+	sudo apt-get installferoxbuster
 else
 	echo "Feroxbuster is installed in your system."
 fi
@@ -39,10 +39,38 @@ if [ -z "$golangCheck" ]
 then
 	echo "GoLang is NOT installed in your system. Installing golang......"
 	echo ""
-	apt-get install golang
+	sudo apt-get install golang
 else
 	echo "GoLang is installed in your system."
 fi
+
+##Checking wkhtmltopdf
+if [ -z "$wkhtmltopdfCheck" ]
+then
+	echo "WKHTMLtoPDF is NOT installed in your system. Installing wkhtmltopdf......"
+	echo ""
+	sudo apt-get install wkhtmltopdf
+
 echo ""
 echo "### Error whilst finding httpx in your system. Installing HTTPX  ###"
-go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+sudo go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+
+
+#download Python Libraries
+sudo pip3 install pdfkit																					
+
+sudo pip3 install argparse																					
+
+sudo pip3 install datetime																		
+
+sudo pip3 install jinja2
+
+
+
+
+
+
+
+
+
+

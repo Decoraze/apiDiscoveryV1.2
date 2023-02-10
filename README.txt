@@ -9,6 +9,7 @@ List of tools to download:
 - Nuclei: https://github.com/projectdiscovery/nuclei,
 - HTTPx: https://github.com/projectdiscovery/httpx,
 - Feroxbuster: sudo apt-get install feroxbuster,
+- Wkhtmltopdf: sudo apt-get install wkhmtltopdf,
 
 Python Libraries to Download or Check for Availibility:
 - Subprocess

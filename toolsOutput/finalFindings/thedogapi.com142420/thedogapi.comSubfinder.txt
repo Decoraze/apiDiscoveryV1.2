@@ -1,0 +1,4 @@
+thedogapi.com
+www.thedogapi.com
+cdn2.thedogapi.com
+api.thedogapi.com

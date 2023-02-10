@@ -1,0 +1,2 @@
+https://api.thedogapi.com/
+https://api.thedogapi.com/v1/
