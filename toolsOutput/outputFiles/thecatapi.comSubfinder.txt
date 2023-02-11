@@ -1,9 +1,0 @@
-api.thecatapi.com
-api2.thecatapi.com
-developers.thecatapi.com
-www.thecatapi.com
-map.thecatapi.com
-portal.thecatapi.com
-docs.thecatapi.com
-thecatapi.com
-cdn2.thecatapi.com

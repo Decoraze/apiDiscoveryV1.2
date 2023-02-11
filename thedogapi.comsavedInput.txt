@@ -1,1 +1,1 @@
-[thedogapi.com, None, None]
+[thedogapi.com, 8, /usr/share/seclists/Discovery/Web-Content/api/objects.txt]
