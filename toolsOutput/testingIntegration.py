@@ -24,7 +24,7 @@ def nuclei(textFile,link):
 def subfinder(sublink):
 
     #------------------SubDomain------------------#
-
+    os.system("mkdir toolsOutput/outputFiles/")
     #command to run subdirectory finder to find all the subdirectories of the url that was given
     commandSubFinder = ["subfinder","-d",(str(sublink)),"-nW","-t","100","-o",("toolsOutput/outputFiles/"+str(sublink)+"Subfinder.txt")]
     
@@ -83,6 +83,10 @@ def command_group_run(url,recursions,list):
     now = datetime.now()
     time = now.strftime("%H%M%S")
     linkDir = (str(url)+str(time)+"/")
+    
+    #commandMakeDirectory = ["mkdir",("toolsOutput/finalFindings/"+linkDir)]
+    
+    #mkdir = subprocess.Popen(commandMakeDirectory, stdout=subprocess.PIPE ).communicate()[0]
     os.system("mkdir toolsOutput/finalFindings/"+linkDir)
     #checks if the input has any values otherwise we set the default value. 
     if recursions != 0:

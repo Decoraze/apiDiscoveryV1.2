@@ -21,7 +21,7 @@ if [ -z "$subfinderCheck" ]
 then
 	echo "Subfinder is NOT installed in your system. Installing subfinder....."
 	echo ""
-	sudo apt-get install subfinder
+	sudo go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 else
 	echo "Subfinder is installed in your system."
 fi
@@ -30,7 +30,7 @@ if [ -z "$feroxbusterCheck" ]
 then
 	echo "Feroxbuster is NOT installed in your system. Installing feroxbuster....."
 	echo ""
-	sudo apt-get installferoxbuster
+	sudo apt install feroxbuster
 else
 	echo "Feroxbuster is installed in your system."
 fi
@@ -54,9 +54,14 @@ else
 	echo "WKHTMLTOPDF is installed in your system"
 fi
 echo ""
-echo "### Error whilst finding httpx in your system. Installing HTTPX  ###"
-sudo go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
 
+echo "### Error whilst finding httpx in your system. Installing HTTPX  ###"
+sudo git clone https://github.com/projectdiscovery/httpx.git
+cd httpx/cmd/httpx
+go build
+sudo mv httpx /usr/local/bin/
+cd ../../../
+sudo rm -r httpx 
 
 #download Python Libraries
 sudo pip3 install pdfkit																					
