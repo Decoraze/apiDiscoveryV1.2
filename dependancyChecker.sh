@@ -50,7 +50,9 @@ then
 	echo "WKHTMLtoPDF is NOT installed in your system. Installing wkhtmltopdf......"
 	echo ""
 	sudo apt-get install wkhtmltopdf
-
+else
+	echo "WKHTMLTOPDF is installed in your system"
+fi
 echo ""
 echo "### Error whilst finding httpx in your system. Installing HTTPX  ###"
 sudo go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
