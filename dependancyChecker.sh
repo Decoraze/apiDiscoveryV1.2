@@ -22,7 +22,7 @@ then
 	echo "Subfinder is NOT installed in your system. Installing subfinder....."
 	echo ""
 	sudo apt install subfinder 
-	sudo go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+	
 else
 	echo "Subfinder is installed in your system."
 fi
@@ -41,6 +41,7 @@ then
 	echo "GoLang is NOT installed in your system. Installing golang......"
 	echo ""
 	sudo apt-get install golang
+	sudo go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
 else
 	echo "GoLang is installed in your system."
 fi
