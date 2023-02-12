@@ -57,6 +57,7 @@ fi
 echo ""
 
 echo "### Error whilst finding httpx in your system. Installing HTTPX  ###"
+sudo apt-get remove python3-httpx
 sudo git clone https://github.com/projectdiscovery/httpx.git
 cd httpx/cmd/httpx
 go build
