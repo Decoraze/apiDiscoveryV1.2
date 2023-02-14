@@ -92,7 +92,7 @@ def getResults(fileName,link):
         openSubFinder = open(subfinderDir)                                                     #                        opening subfinder text file
         for line in openSubFinder:                                                             #                        reading subfinder file line by line
             line = line.replace('\n','')                                                       #                        remove newline character before appending
-            subDomainList.append(line) 
+            subDomainList.append(line)                                                         #                        appending results to subfinder list 
 
         #appending httpx results from the text file into the list. 
         httpxDir = ('toolsOutput/finalFindings/'+fileName+"/"+link+"Httpx.txt")                #                        directory listing for the httpx file
@@ -102,66 +102,81 @@ def getResults(fileName,link):
             line = line.split(" ")                                                             #                        making the line into a list for filtering
             httpxList.append(str(line[0])+str(line[3::]))                                      #                        appending results to httpx list
         #print(httpxList)
+
+        #get urls 
+        acceptedUrls = findUrl(subDomainList,('toolsOutput/finalFindings/'+fileName+"/"))
+        #print(acceptedUrls)
+        
+        #whitelisted sites
+        usr = False
+        whiteList = []
+        while usr == False:
+            try:
+                usrInput = str(input("Please input your text file path for whitelisted sites (Press ENTER if you have no inputs ):"))
+                if usrInput == "":
+                    usr = True
+                else:
+
+                    if fileCheck(usrInput) == True:
+                        f = open(usrInput)
+                        
+                        for line in f:
+                            line = line.replace('\n','')
+                            whiteList.append(line)
+                        usr = True
+                    elif fileCheck(usrInput) == False:
+                        print("File Not Found!! Please enter again")
+
+                    else:
+                        print("An error has occured!")
+                
+            except FileNotFoundError or ValueError:
+                print("Error has occured! Please check your inputs")
+
+        #appending ferox result from the text file into the list
+        for x in acceptedUrls:                                                               #                       enumerate through the list of accepted urls(urls that were scanned) 
+            feroxbuster_file = ('toolsOutput/finalFindings/'+fileName+"/"+x+"Feroxbuster.txt")#                      directory listing for the feroxbuster file
+            openFerox = open(feroxbuster_file)                                                  #                       opening feroxbuster text file for specified url
+            for line in openFerox:                                                              #                       reading opened file line by line
+                line = line.replace('\n','')                                                    #                       replacing newline character before appending 
+                feroxList.append(line)                                                          #                       appending results to ferox list
+        #print(feroxList)
+
+        #update links in pdf
+        for i in whiteList:
+            for line in feroxList:
+                if i in line:
+                    feroxList.remove(line)
+
+        for x in acceptedUrls:                                                               #                       enumerate through the list of accepted urls(urls that were scanned)
+            nuclei_file = ('toolsOutput/finalFindings/'+fileName+"/"+x+"Feroxbuster.txtNucleiOutput.txt")#           directory listing for the nuclei file
+            openNuclei = open(nuclei_file)                                                      #                       opening nuclei text file for specified url
+            for line in openNuclei:                                                             #                       reading opened file line by line
+                line = line.replace('\n','')                                                    #                       replacing newline character before appending 
+                nucleiList.append(line)                                                         #                       appending results to nuclei list
+        #print(nucleiList)
+        
     except FileNotFoundError:
         subDomainList.append("No SubDomains!") 
-        httpxList.append("Url is Valid!")                                                     #                        appending results to subfinder list 
+        httpxList.append("Url is Valid!")
+
+        feroxbuster_file = ('toolsOutput/finalFindings/'+fileName+"/"+link+"Feroxbuster.txt")#                      directory listing for the feroxbuster file
+        openFerox = open(feroxbuster_file)                                                  #                       opening feroxbuster text file for specified url
+        for line in openFerox:                                                              #                       reading opened file line by line
+            line = line.replace('\n','')                                                    #                       replacing newline character before appending 
+            feroxList.append(line)
+        
+        nuclei_file = ('toolsOutput/finalFindings/'+fileName+"/"+link+"Feroxbuster.txtNucleiOutput.txt")#           directory listing for the nuclei file
+        openNuclei = open(nuclei_file)                                                      #                       opening nuclei text file for specified url
+        for line in openNuclei:                                                             #                       reading opened file line by line
+            line = line.replace('\n','')                                                    #                       replacing newline character before appending 
+            nucleiList.append(line)                                                         
     #print(subDomainList)#delete this aft testing
 
 
     
 
-    #get urls 
-    acceptedUrls = findUrl(subDomainList,('toolsOutput/finalFindings/'+fileName+"/"))
-    #print(acceptedUrls)
     
-    #whitelisted sites
-    usr = False
-    whiteList = []
-    while usr == False:
-        try:
-            usrInput = str(input("Please input your text file path for whitelisted sites (Press ENTER if you have no inputs ):"))
-            if usrInput == "":
-                usr = True
-            else:
-
-                if fileCheck(usrInput) == True:
-                    f = open(usrInput)
-                    
-                    for line in f:
-                        line = line.replace('\n','')
-                        whiteList.append(line)
-                    usr = True
-                elif fileCheck(usrInput) == False:
-                    print("File Not Found!! Please enter again")
-
-                else:
-                    print("An error has occured!")
-            
-        except FileNotFoundError or ValueError:
-            print("Error has occured! Please check your inputs")
-
-    #appending ferox result from the text file into the list
-    for x in acceptedUrls:                                                               #                       enumerate through the list of accepted urls(urls that were scanned) 
-        feroxbuster_file = ('toolsOutput/finalFindings/'+fileName+"/"+x+"Feroxbuster.txt")#                      directory listing for the feroxbuster file
-        openFerox = open(feroxbuster_file)                                                  #                       opening feroxbuster text file for specified url
-        for line in openFerox:                                                              #                       reading opened file line by line
-            line = line.replace('\n','')                                                    #                       replacing newline character before appending 
-            feroxList.append(line)                                                          #                       appending results to ferox list
-    #print(feroxList)
-
-    #update links in pdf
-    for i in whiteList:
-        for line in feroxList:
-            if i in line:
-                feroxList.remove(line)
-
-    for x in acceptedUrls:                                                               #                       enumerate through the list of accepted urls(urls that were scanned)
-        nuclei_file = ('toolsOutput/finalFindings/'+fileName+"/"+x+"Feroxbuster.txtNucleiOutput.txt")#           directory listing for the nuclei file
-        openNuclei = open(nuclei_file)                                                      #                       opening nuclei text file for specified url
-        for line in openNuclei:                                                             #                       reading opened file line by line
-            line = line.replace('\n','')                                                    #                       replacing newline character before appending 
-            nucleiList.append(line)                                                         #                       appending results to nuclei list
-    #print(nucleiList)
 
     insertValues(subDomainList,httpxList,feroxList,nucleiList,link)
     #print("open")
