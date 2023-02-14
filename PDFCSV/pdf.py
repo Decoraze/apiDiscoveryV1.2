@@ -87,22 +87,28 @@ def findUrl(subdomains,path):
 def getResults(fileName,link):
 
     #appending subfinder results from the text file into a list.
-    subfinderDir = ('toolsOutput/finalFindings/'+fileName+"/"+link+"Subfinder.txt")        #                        directory listing for the text file
-    openSubFinder = open(subfinderDir)                                                     #                        opening subfinder text file
-    for line in openSubFinder:                                                             #                        reading subfinder file line by line
-        line = line.replace('\n','')                                                       #                        remove newline character before appending
-        subDomainList.append(line)                                                         #                        appending results to subfinder list 
+    try:
+        subfinderDir = ('toolsOutput/finalFindings/'+fileName+"/"+link+"Subfinder.txt")        #                        directory listing for the text file
+        openSubFinder = open(subfinderDir)                                                     #                        opening subfinder text file
+        for line in openSubFinder:                                                             #                        reading subfinder file line by line
+            line = line.replace('\n','')                                                       #                        remove newline character before appending
+            subDomainList.append(line) 
+
+        #appending httpx results from the text file into the list. 
+        httpxDir = ('toolsOutput/finalFindings/'+fileName+"/"+link+"Httpx.txt")                #                        directory listing for the httpx file
+        openHttpx = open(httpxDir)                                                             #                        opening httpx text file
+        for line in openHttpx:                                                                 #                        reading opened file line by line
+            line = line.replace('\n','')                                                       #                        replacing newline character before appending
+            line = line.split(" ")                                                             #                        making the line into a list for filtering
+            httpxList.append(str(line[0])+str(line[3::]))                                      #                        appending results to httpx list
+        #print(httpxList)
+    except FileNotFoundError:
+        subDomainList.append("No SubDomains!") 
+        httpxList.append("Url is Valid!")                                                     #                        appending results to subfinder list 
     #print(subDomainList)#delete this aft testing
 
 
-    #appending httpx results from the text file into the list. 
-    httpxDir = ('toolsOutput/finalFindings/'+fileName+"/"+link+"Httpx.txt")                #                        directory listing for the httpx file
-    openHttpx = open(httpxDir)                                                             #                        opening httpx text file
-    for line in openHttpx:                                                                 #                        reading opened file line by line
-        line = line.replace('\n','')                                                       #                        replacing newline character before appending
-        line = line.split(" ")                                                             #                        making the line into a list for filtering
-        httpxList.append(str(line[0])+str(line[3::]))                                      #                        appending results to httpx list
-    #print(httpxList)
+    
 
     #get urls 
     acceptedUrls = findUrl(subDomainList,('toolsOutput/finalFindings/'+fileName+"/"))
