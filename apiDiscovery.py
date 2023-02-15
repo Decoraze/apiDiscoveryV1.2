@@ -2,7 +2,7 @@
 import os
 import sys
 #check for dependancies installed on the system.
-os.system("chmod 777 dependancyChecker.sh")                                                         # command to make DependancyChecker Executable
+os.system("chmod 777 dependancyChecker.sh")                                                         # command to make DependancyChecker Executable 4 - Read 2 - write 1 - Executable 
 os.system("./dependancyChecker.sh")                                                                 # command to run the checker for dependancyChecker
 ###
 import toolsOutput.testingIntegration as toolsIntegration
