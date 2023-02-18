@@ -5,7 +5,7 @@ import sys
 os.system("chmod 777 dependancyChecker.sh")                                                         # command to make DependancyChecker Executable 4 - Read 2 - write 1 - Executable 
 os.system("./dependancyChecker.sh")                                                                 # command to run the checker for dependancyChecker 
 #Imports for main file  
-import toolsOutput.testingIntegration as toolsIntegration                                           #import for main file. Testing
+import toolsOutput.testingIntegration as toolsIntegration                                           #import for main file. 
 import subprocess
 from subprocess import run
 import argparse
