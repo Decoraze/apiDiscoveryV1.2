@@ -15,7 +15,7 @@ import PDFCSV.pdf as pdf                                                        
 def main(): 
     
     
-
+    #flag for while loop
     flag = False
 
     while flag != True:
