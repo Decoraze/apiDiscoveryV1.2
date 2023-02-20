@@ -11,8 +11,8 @@ from subprocess import run
 import argparse
 import PDFCSV.pdf as pdf                                                                            # import for PDFCSV file's main file
 
-
-def main():
+#main function
+def main(): 
     
     
 
